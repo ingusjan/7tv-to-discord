@@ -26,13 +26,18 @@ if (!config.defaultEmoteSet) {
 const spinner = createSpinner(
   `Fetching your emotes (Set: ${emoteSetId})...`
 ).start();
-const emotes = await fetchAllEmotesFromSet(emoteSetId, config.emoteCountLimit);
+
+const { emotes, emoteSetName } = await fetchAllEmotesFromSet(
+  emoteSetId,
+  config.emoteCountLimit
+);
+
 if (!emotes) {
   spinner.error("Failed to fetch emotes. Start the script to try again.");
   process.exit(1);
 }
 spinner.success({
-  text: `Fetched ${emotes.length} emotes from 7TV Set ${emoteSetId}.`,
+  text: `Fetched ${emotes.length} emotes from ${emoteSetName}.`,
 });
 
 const emotesToImport = await promptForEmotesToImport(emotes);
