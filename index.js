@@ -7,8 +7,8 @@ import { convertAllEmotesAndSaveToDownloads } from "./lib/image-processing.js";
 import { promptForEmoteSetId, promptForEmotesToImport } from "./lib/prompts.js";
 
 const config = {
-  defaultEmoteSet: "6405e1d944de28854f52cc7f",
-  emoteCountLimit: 15,
+  defaultEmoteSet: "61a91d43e9684edbbc38007c",
+  emoteCountLimit: 9999,
 };
 
 let emoteSetId = config.defaultEmoteSet;
